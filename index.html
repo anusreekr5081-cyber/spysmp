@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="google-adsense-account" content="ca-pub-9564500160410971">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9564500160410971" crossorigin="anonymous"></script>
+<meta name="description" content="SpySMP Network — Apple-Grade Enterprise Minecraft Infrastructure. 10 Custom Game Modes, Raytraced Shaders, 20.0 TPS Dedicated Compute, Zero Pay-to-Win. Connect at play.spysmp.live">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://spysmp.live/">
+<meta property="og:title" content="SpySMP Network — Enterprise Minecraft Infrastructure">
+<meta property="og:description" content="10 Custom Game Modes, Raytraced Shaders, 20.0 TPS Dedicated Compute, Zero Pay-to-Win. Connect at play.spysmp.live">
+<meta property="og:url" content="https://spysmp.live/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://spysmp.live/assets/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SpySMP Network — Flagship Infrastructure">
+<meta name="twitter:description" content="10 Custom Game Modes, 20.0 TPS Dedicated Compute, Zero Pay-to-Win. Connect at play.spysmp.live">
+<title>SpySMP Network — Enterprise Minecraft Infrastructure &amp; SMP</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=11">
+</head>
+<body>
+
+<!-- ═══ SIDEBAR NAVIGATION (Desktop & Drawer) ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-top">
+    <a href="#home" class="sb-logo" onclick="closeSidebar()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+      <span>SpySMP</span>
+      <span class="sb-logo-badge">PRO</span>
+    </a>
+    <button class="sb-x" id="sb-close" aria-label="Close menu">✕</button>
+  </div>
+
+  <!-- Live Status & Latency Ping Monitor -->
+  <div class="sb-status">
+    <div class="sb-status-left">
+      <span class="pulse-dot"></span>
+      <span class="sb-status-txt">Season One · <b>20.0 TPS</b></span>
+    </div>
+    <span class="ping-tag" id="pingTag">measuring…</span>
+  </div>
+
+  <div class="sb-acct-wrap">
+    <button class="sb-acct-btn" id="acctBtn" aria-label="Account" aria-haspopup="dialog">
+      <span id="acctAvatarWrap" class="acct-avatar-wrap">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5.5" r="3"/><path d="M2.5 14c.5-3 2.7-4.5 5.5-4.5s5 1.5 5.5 4.5" stroke-linecap="round"/></svg>
+      </span>
+      <span id="acctLabel">Log in</span>
+    </button>
+  </div>
+
+  <nav class="sb-nav" id="sb-nav">
+    <a href="#home" class="sb-link active" data-page="home" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+      <span>Overview</span>
+    </a>
+    <a href="#modes" class="sb-link" data-page="modes" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"/></svg>
+      <span>Game Modes</span>
+      <span class="sb-badge">10</span>
+    </a>
+    <a href="#vote" class="sb-link" data-page="vote" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+      <span>Community Poll</span>
+      <span class="sb-badge" id="voteCount" style="display:none">0</span>
+    </a>
+    <a href="#ranks" class="sb-link" data-page="ranks" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      <span>Store &amp; Support</span>
+    </a>
+    <a href="#rules" class="sb-link" data-page="rules" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      <span>Code of Conduct</span>
+    </a>
+    <a href="#join" class="sb-link" data-page="join" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+      <span>Connection Guide</span>
+    </a>
+  </nav>
+
+  <div class="sb-footer">
+    <div class="sb-controls">
+      <button class="sb-ctrl-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <span>Appearance</span>
+      </button>
+    </div>
+
+    <div class="sb-social-links">
+      <a href="https://github.com/anusreekr5081-cyber/spysmp" target="_blank" rel="noopener noreferrer" class="sb-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.instagram.com/jinshi_1" target="_blank" rel="noopener noreferrer" class="sb-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+
+    <div class="sb-policies">
+      <a href="privacy.html" class="sb-pol">Privacy</a>
+      <a href="terms.html" class="sb-pol">Terms</a>
+      <a href="refund.html" class="sb-pol">Refunds</a>
+      <a href="https://anusreekr5081-cyber.github.io/spysmp/" target="_blank" rel="noopener" class="sb-pol">GH Pages</a>
+    </div>
+  </div>
+</aside>
+
+<!-- Mobile Navigation Drawer Overlay -->
+<div class="sb-overlay" id="sb-overlay"></div>
+
+<!-- ═══ TOPBAR (Mobile) ═══ -->
+<header class="topbar">
+  <button class="tb-menu" id="sb-toggle" aria-label="Open menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+  </button>
+  <a href="#home" class="tb-logo">SPYSMP</a>
+  <div class="tb-right">
+    <button class="tb-acct" id="tbAcctBtn" aria-label="Account">
+      <span id="tbAcctAvatarWrap" class="tb-avatar-wrap">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5.5" r="3"/><path d="M2.5 14c.5-3 2.7-4.5 5.5-4.5s5 1.5 5.5 4.5" stroke-linecap="round"/></svg>
+      </span>
+      <span id="tbAcctLabel">Log in</span>
+    </button>
+    <button class="tb-tg" id="tg" aria-label="Toggle appearance">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main">
+
+  <!-- ── 1. OVERVIEW (HOME) ── -->
+  <section class="page" id="home">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span>Season One Active · 20.0 TPS Bare Metal · Zero Pay-to-Win</span>
+        </div>
+        <h1 class="hero-title">
+          Minecraft Infrastructure, <span>Perfected</span>.
+        </h1>
+        <p class="hero-desc">
+          Engineered for high-throughput stability, custom survival mechanics, and fluid crossplay. Ten custom game modes operating on enterprise bare-metal compute.
+        </p>
+        <div class="hero-cta">
+          <a href="#modes" class="btn btn-primary">Explore Game Modes →</a>
+          <a href="#vote" class="btn btn-ghost">Community Poll</a>
+        </div>
+        <div class="hero-ip-badge" id="quickCopyBtn" title="Click to copy server endpoint">
+          <span class="pulse-dot"></span>
+          <span class="ip-text">play.spysmp.live</span>
+          <span class="copy-indicator">Copy Address 📋</span>
+        </div>
+      </div>
+
+      <div class="hero-vis">
+        <div class="hero-frame-header">
+          <span class="hero-frame-dot"></span>
+          <span class="hero-frame-dot"></span>
+          <span class="hero-frame-dot"></span>
+          <span class="hero-frame-title">play.spysmp.live — Raytraced Environment (BSL 8.2)</span>
+        </div>
+        <img src="assets/img/hero.jpg" alt="Cinematic Minecraft world with BSL shaders at golden hour" class="hero-vis-img" loading="eager">
+        <div class="hero-vis-overlay">
+          <div>
+            <div class="hero-vis-label">Dedicated Enterprise Node</div>
+            <div class="hero-vis-sub">Native Java &amp; Bedrock Crossplay</div>
+          </div>
+          <span class="hero-vis-pill">20.0 TPS Constant</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span>Network Infrastructure</span>
+        <b style="color:var(--emerald);">● Online · Enterprise Node</b>
+      </div>
+      <div class="stat">
+        <span>Available Ecosystems</span>
+        <b>10 Custom Game Modes</b>
+      </div>
+      <div class="stat">
+        <span>Client Compatibility</span>
+        <b>Java &amp; Bedrock (1.20 – 1.21)</b>
+      </div>
+      <div class="stat">
+        <span>Economic Model</span>
+        <b>100% Fair Play · No Pay-to-Win</b>
+      </div>
+    </div>
+
+    <!-- Core Features -->
+    <div class="features">
+      <div class="feat-card">
+        <div class="feat-icon">⚖️</div>
+        <h3>Strictly Fair Play</h3>
+        <p>Zero pay-to-win mechanics. Weapons, armor, currency, and rank advancement are earned exclusively through gameplay.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>20.0 TPS Performance</h3>
+        <p>Enterprise dedicated compute hardware with NVMe storage arrays and optimized chunk scheduling for zero-lag combat.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🛡️</div>
+        <h3>Active Moderation</h3>
+        <p>Real-time packet inspection anti-cheat combined with an active administrative team. Exploits and griefing are reversed instantly.</p>
+      </div>
+    </div>
+
+    <!-- Ad Slot 1 -->
+    <div class="ad-slot">
+      <p class="ad-label">Community Sponsored Partner</p>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9564500160410971" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Network Philosophy -->
+    <div class="story" id="story">
+      <div class="story-pin">
+        <div class="story-w on">
+          <h2>Engineered for Longevity.</h2>
+          <p>Every chunk, economy transaction, and town claim is securely journaled with automated hourly backups.</p>
+        </div>
+        <div class="story-w">
+          <h2>Seamless Crossplay.</h2>
+          <p>Connect natively from PC Java Edition or Bedrock Edition on mobile and consoles without missing a beat.</p>
+        </div>
+        <div class="story-w">
+          <h2>Community Owned.</h2>
+          <p>Our roadmap is directly decided by registered player votes. Shape Season One right from your account.</p>
+        </div>
+        <div class="story-dots">
+          <i class="story-dot on"></i>
+          <i class="story-dot"></i>
+          <i class="story-dot"></i>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network. Not affiliated with Mojang Studios or Microsoft.</div>
+        <div class="footer-right">
+          <a href="https://github.com/anusreekr5081-cyber/spysmp" target="_blank" rel="noopener noreferrer" class="foot-gh">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.instagram.com/jinshi_1" target="_blank" rel="noopener noreferrer" class="foot-ig">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>@jinshi_1</span>
+          </a>
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+          <a href="refund.html" class="footer-link">Refunds</a>
+          <a href="https://anusreekr5081-cyber.github.io/spysmp/" target="_blank" rel="noopener" class="footer-link">GH Pages</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 2. GAME MODES (WITH SEARCH) ── -->
+  <section class="page" id="modes" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Server Ecosystems</div>
+      <h2>Engineered for Every Playstyle.</h2>
+      <p>High-fidelity shader photography captured directly inside our operational server worlds. Search or filter by playstyle below.</p>
+    </div>
+
+    <!-- Controls Row: Filter + Search -->
+    <div class="modes-controls-row">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Modes</button>
+        <button class="filter-btn" data-filter="survival">Survival</button>
+        <button class="filter-btn" data-filter="pvp">Combat &amp; PvP</button>
+        <button class="filter-btn" data-filter="economy">Economy</button>
+        <button class="filter-btn" data-filter="minigames">Minigames</button>
+      </div>
+      <div class="mode-search-wrap">
+        <svg class="mode-search-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+        <input type="text" class="mode-search-input" id="modeSearchInput" placeholder="Filter by keyword (e.g. pvp, island)..." aria-label="Search game modes">
+      </div>
+    </div>
+
+    <div class="modes-grid">
+      <!-- 1. Survival SMP (Featured) -->
+      <div class="mc-card featured" data-category="survival">
+        <div class="mc-img-wrap"><img src="assets/img/mode_survival.jpg" alt="Survival SMP shaders lake and cabin" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row">
+            <span class="mc-tag">#1 · Primary Ecosystem</span>
+            <span style="font-size:18px;">🌍</span>
+          </div>
+          <h3>Survival SMP</h3>
+          <p>Our flagship experience. Land claiming, player-run shops, custom fishing, dynamic seasons, and a community built to last for years.</p>
+          <div class="mc-pills">
+            <span class="pill">PvE &amp; Social</span><span class="pill">Town Claims</span><span class="pill">Custom Enchants</span><span class="pill">No Grief</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Factions -->
+      <div class="mc-card" data-category="pvp">
+        <div class="mc-img-wrap"><img src="assets/img/mode_factions.jpg" alt="Factions stone fortress castle under siege" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#2 · Warzone</span><span>⚔️</span></div>
+          <h3>Factions</h3>
+          <p>Form clans, build obsidian fortresses, raid enemies with cannon mechanics, and dominate the seasonal leaderboards.</p>
+          <div class="mc-pills"><span class="pill">Full PvP</span><span class="pill">Raiding</span><span class="pill">Power Economy</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Skyblock -->
+      <div class="mc-card" data-category="survival">
+        <div class="mc-img-wrap"><img src="assets/img/mode_skyblock.jpg" alt="Skyblock floating island in the clouds" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#3 · Progression</span><span>☁️</span></div>
+          <h3>Skyblock</h3>
+          <p>Spawn on a minimalist floating island. Master resource automation, upgrade island minions, and build an empire in the sky.</p>
+          <div class="mc-pills"><span class="pill">Islands</span><span class="pill">Automation</span><span class="pill">Minions</span></div>
+        </div>
+      </div>
+
+      <!-- 4. Prison -->
+      <div class="mc-card" data-category="economy">
+        <div class="mc-img-wrap"><img src="assets/img/mode_prison.jpg" alt="Prison deep underground crystal mine" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#4 · Classic</span><span>⛏️</span></div>
+          <h3>OP Prison</h3>
+          <p>Mine through ranks A to Z. Unlock custom pickaxe enchants, open lucky blocks, run plots, and achieve freedom into the outer world.</p>
+          <div class="mc-pills"><span class="pill">Auto-Sell</span><span class="pill">Custom Enchants</span><span class="pill">Prestige</span></div>
+        </div>
+      </div>
+
+      <!-- 5. Parkour -->
+      <div class="mc-card" data-category="minigames">
+        <div class="mc-img-wrap"><img src="assets/img/mode_parkour.jpg" alt="High altitude parkour platforms in sunset clouds" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#5 · Precision</span><span>🏃</span></div>
+          <h3>Parkour Speedway</h3>
+          <p>50+ hand-crafted courses ranging from beginner sprints to heart-pounding precision neo-jumps with millisecond time trackers.</p>
+          <div class="mc-pills"><span class="pill">Leaderboards</span><span class="pill">Checkpoints</span><span class="pill">Speedrun</span></div>
+        </div>
+      </div>
+
+      <!-- 6. Kit PvP -->
+      <div class="mc-card" data-category="pvp">
+        <div class="mc-img-wrap"><img src="assets/img/mode_pvp.jpg" alt="Gladiator PvP colosseum arena with beacon beam" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#6 · Pure Combat</span><span>🗡️</span></div>
+          <h3>Kit PvP</h3>
+          <p>Drop straight into the colosseum. Choose custom kits, streak kills, unlock legendary swords, and duel in 1v1 ranked matches.</p>
+          <div class="mc-pills"><span class="pill">Elo Ranked</span><span class="pill">Killstreaks</span><span class="pill">Instant Action</span></div>
+        </div>
+      </div>
+
+      <!-- 7. BedWars -->
+      <div class="mc-card" data-category="minigames">
+        <div class="mc-img-wrap"><img src="assets/img/mode_bedwars.jpg" alt="BedWars floating island base and wool bridge" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#7 · Strategy</span><span>🛏️</span></div>
+          <h3>BedWars</h3>
+          <p>Defend your team's bed, bridge to generator islands for diamonds and emeralds, and eliminate opposing squads before they respawn.</p>
+          <div class="mc-pills"><span class="pill">Solo &amp; Squads</span><span class="pill">Kill Cosmetics</span></div>
+        </div>
+      </div>
+
+      <!-- 8. Creative -->
+      <div class="mc-card" data-category="economy">
+        <div class="mc-img-wrap"><img src="assets/img/mode_creative.jpg" alt="Colossal creative gothic fantasy cathedral mega build" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#8 · Architecture</span><span>🎨</span></div>
+          <h3>Creative Plots</h3>
+          <p>Massive 128x128 plots with full WorldEdit and VoxelSniper access. Weekly builder competitions with community awards.</p>
+          <div class="mc-pills"><span class="pill">WorldEdit</span><span class="pill">Builder Ranks</span><span class="pill">Plot Merging</span></div>
+        </div>
+      </div>
+
+      <!-- 9. UHC -->
+      <div class="mc-card" data-category="pvp">
+        <div class="mc-img-wrap"><img src="assets/img/mode_uhc.jpg" alt="Dark oak forest with blood red moon survival" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#9 · Hardcore</span><span>💀</span></div>
+          <h3>Ultra Hardcore (UHC)</h3>
+          <p>No natural health regeneration. Golden apples and potions only. High stakes survival tournament where only one team escapes.</p>
+          <div class="mc-pills"><span class="pill">Permadeath</span><span class="pill">Shrinking Border</span><span class="pill">High Stakes</span></div>
+        </div>
+      </div>
+
+      <!-- 10. Earth SMP -->
+      <div class="mc-card" data-category="survival">
+        <div class="mc-img-wrap"><img src="assets/img/mode_earth.jpg" alt="Voxel Earth globe floating in starry cosmos" loading="lazy"></div>
+        <div class="mc-body">
+          <div class="mc-tag-row"><span class="mc-tag">#10 · Geo-Politics</span><span>🌐</span></div>
+          <h3>Earth SMP</h3>
+          <p>A true-to-life 1:1500 scale voxel recreation of Earth. Found historic nations, form international treaties, trade, and forge history.</p>
+          <div class="mc-pills"><span class="pill">World Map</span><span class="pill">Nation Wars</span><span class="pill">Diplomacy</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network.</div>
+        <div class="footer-right">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 3. COMMUNITY POLL (VOTE) ── -->
+  <section class="page" id="vote" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Democratic Governance</div>
+      <h2>Shape Season One Development.</h2>
+      <p>Direct community democracy. One vote per registered account. You can update your choice at any point.</p>
+    </div>
+
+    <div class="vote-wrap">
+      <div class="vote-card">
+        <p class="vote-q">Should SpySMP expand with dedicated Bedrock crossplay realms now?</p>
+        <div class="vote-acts">
+          <button class="vote-btn yes" data-choice="yes" aria-pressed="false">
+            <span class="vb-ico">✓</span>
+            <b>Yes</b>
+            <small>Deploy realms now</small>
+          </button>
+          <button class="vote-btn no" data-choice="no" aria-pressed="false">
+            <span class="vb-ico">✕</span>
+            <b>No</b>
+            <small>Focus on core modes</small>
+          </button>
+        </div>
+        <p class="vote-note" id="voteNote">Sign in to cast your verified vote.</p>
+        <div class="vote-res" id="voteResults">
+          <div class="vr-row">
+            <div class="vr-top"><span>Yes</span><b id="voteYes">0%</b></div>
+            <div class="vbar"><i id="barYes"></i></div>
+            <small id="voteYesN">0 votes</small>
+          </div>
+          <div class="vr-row">
+            <div class="vr-top"><span>No</span><b id="voteNo">0%</b></div>
+            <div class="vbar no"><i id="barNo"></i></div>
+            <small id="voteNoN">0 votes</small>
+          </div>
+          <p class="vote-total" id="voteTotal">0 votes cast · 0 members</p>
+        </div>
+      </div>
+      <p class="vote-fine">Poll results directly inform developer sprint priorities and server budget allocation.</p>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network.</div>
+        <div class="footer-right">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 4. STORE & SUPPORT (RANKS) ── -->
+  <section class="page" id="ranks" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Project Sustainability</div>
+      <h2>Support the Infrastructure.<br>Exclusively Cosmetic.</h2>
+      <p>100% of rank contributions fund enterprise server compute, DDoS mitigation, and hardware upgrades. Never pay-to-win.</p>
+    </div>
+
+    <div class="ranks-wrap">
+      <div class="ranks-grid">
+        <div class="rank-card">
+          <div class="rank-tier">Tier I</div>
+          <h3>Supporter</h3>
+          <p>For players who want to support network hosting and stand out in community chat.</p>
+          <ul class="rank-perks">
+            <li>[Supporter] Prefix &amp; custom chat formatting</li>
+            <li>5 Additional /sethome slots</li>
+            <li>Supporter Discord role &amp; lounge</li>
+            <li>Cosmetic /sit and /hat access</li>
+          </ul>
+          <div class="rank-price">
+            <span>Billing Tier</span>
+            <b>Tier 1</b>
+          </div>
+        </div>
+
+        <div class="rank-card feat">
+          <div class="rank-tier">Tier II · Most Popular</div>
+          <h3>Elite</h3>
+          <p>Extended cosmetic particles, priority queue allocation, and extra storage convenience.</p>
+          <ul class="rank-perks">
+            <li>[Elite] Prefix &amp; distinctive badge</li>
+            <li>10 Additional /sethome slots</li>
+            <li>Cosmetic particle trails &amp; kill effects</li>
+            <li>Priority server slot reservation</li>
+          </ul>
+          <div class="rank-price">
+            <span>Billing Tier</span>
+            <b>Tier 2</b>
+          </div>
+        </div>
+
+        <div class="rank-card">
+          <div class="rank-tier">Tier III · Prestige</div>
+          <h3>Legend</h3>
+          <p>The ultimate collector tier. Custom tag, early preview test access, and vanity perks.</p>
+          <ul class="rank-perks">
+            <li>[Legend] Animated chat prefix</li>
+            <li>Unlimited /sethome &amp; 3 virtual vaults</li>
+            <li>Custom nickname capability (/nick)</li>
+            <li>Early preview test access to updates</li>
+          </ul>
+          <div class="rank-price">
+            <span>Billing Tier</span>
+            <b>Tier 3</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Comparison Table -->
+      <div style="overflow-x:auto;border-radius:var(--r-xl);background:var(--surface);border:1px solid var(--border);">
+        <table style="width:100%;border-collapse:collapse;min-width:540px;font-size:14px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);background:var(--surface-raised);">
+              <th style="padding:16px 20px;text-align:left;font-weight:600;color:var(--text);">Perk Matrix</th>
+              <th style="padding:16px 20px;font-weight:600;color:var(--text);text-align:center;">Supporter</th>
+              <th style="padding:16px 20px;font-weight:600;color:var(--text);text-align:center;">Elite</th>
+              <th style="padding:16px 20px;font-weight:600;color:var(--text);text-align:center;">Legend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px;color:var(--text-secondary);">Chat Badge &amp; Formatting</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px;color:var(--text-secondary);">Home Waypoints</td>
+              <td style="text-align:center;">5 Homes</td>
+              <td style="text-align:center;">10 Homes</td>
+              <td style="text-align:center;font-weight:600;">Unlimited</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px;color:var(--text-secondary);">Particle Trails &amp; Wings</td>
+              <td style="text-align:center;color:var(--text-tertiary);">—</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px;color:var(--text-secondary);">Reserved Slot Bypass</td>
+              <td style="text-align:center;color:var(--text-tertiary);">—</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px;color:var(--text-secondary);">Nickname Customization</td>
+              <td style="text-align:center;color:var(--text-tertiary);">—</td>
+              <td style="text-align:center;color:var(--text-tertiary);">—</td>
+              <td style="text-align:center;font-weight:600;">✓</td>
+            </tr>
+            <tr>
+              <td style="padding:16px 20px;font-weight:700;color:var(--text);">Gameplay / Combat Advantage</td>
+              <td style="text-align:center;font-weight:700;">Zero</td>
+              <td style="text-align:center;font-weight:700;">Zero</td>
+              <td style="text-align:center;font-weight:700;">Zero</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network.</div>
+        <div class="footer-right">
+          <a href="refund.html" class="footer-link">Refund Policy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 5. CODE OF CONDUCT (RULES) ── -->
+  <section class="page" id="rules" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Community Standards</div>
+      <h2>Five Core Principles.</h2>
+      <p>Transparent, impartial, and uniformly enforced across all servers.</p>
+    </div>
+
+    <div class="rules-wrap">
+      <ol class="rules-list">
+        <li class="rule-item">
+          <span class="rule-num">01</span>
+          <div>
+            <h3>Mutual Respect</h3>
+            <p>Zero tolerance for harassment, hate speech, discrimination, targeting, or toxicity. Treat every community member with professional dignity.</p>
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-num">02</span>
+          <div>
+            <h3>Fair Competition</h3>
+            <p>Disallowed client modifications, automated macros, x-ray packs, and exploit abuse result in immediate network disqualification.</p>
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-num">03</span>
+          <div>
+            <h3>Account Integrity</h3>
+            <p>Real-world trading, phishing, account sharing to bypass penalties, unauthorized advertising, or chargeback fraud are strictly prohibited.</p>
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-num">04</span>
+          <div>
+            <h3>Property Protection</h3>
+            <p>In claim-protected SMP and creative plots, destroying or stealing other players' documented work carries permanent restitution penalties.</p>
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-num">05</span>
+          <div>
+            <h3>Staff &amp; Appeals Process</h3>
+            <p>Staff directives must be respected during active moderation incidents. Formal dispute appeals must be logged via official Discord ticket.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network.</div>
+        <div class="footer-right">
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 6. CONNECTION GUIDE (JOIN) ── -->
+  <section class="page" id="join" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Connection Details</div>
+      <h2>Join the Network.</h2>
+      <p>Connecting is instant. No custom client downloads or mods required.</p>
+    </div>
+
+    <div class="join-wrap">
+      <div class="join-grid">
+        <div class="join-card">
+          <div class="join-label">Official Server Endpoint</div>
+          <h3>play.spysmp.live</h3>
+          <p>Native support for Minecraft Java Edition 1.20 through 1.21. Standard port 25565.</p>
+          <div class="server-ip" id="serverIpBox">
+            <span>play.spysmp.live</span>
+            <span style="font-size:12px;font-weight:600;">Copy Endpoint 📋</span>
+          </div>
+        </div>
+
+        <div class="join-card">
+          <div class="join-label">Community Hub</div>
+          <h3>Discord Community</h3>
+          <p>Receive maintenance updates, changelogs, staff applications, and engage with other players.</p>
+          <div style="margin-top:auto;">
+            <button class="btn btn-primary btn-wide" id="discordBtn" type="button">Join Discord Community →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <details>
+          <summary>What is the server address (IP)?</summary>
+          <p>The official connection address is <strong>play.spysmp.live</strong>. Click the address box above to copy it to your clipboard.</p>
+        </details>
+        <details>
+          <summary>Is this network pay-to-win?</summary>
+          <p><strong>Never.</strong> SpySMP is strictly committed to fair play. Ranks grant cosmetic prefixes, chat formatting, and convenience commands, but zero combat advantages or overpowered gear.</p>
+        </details>
+        <details>
+          <summary>Which Minecraft editions and versions are supported?</summary>
+          <p>Java Edition 1.20 through 1.21. Bedrock crossplay on port 19132 is actively supported.</p>
+        </details>
+        <details>
+          <summary>What user data is stored when creating an account?</summary>
+          <p>We practice extreme data minimization: we only store your chosen username, a cryptographically salted password hash (we cannot view your password), and your IP address for anti-abuse rate limiting. Read our <a href="privacy.html" style="text-decoration:underline;">Privacy Policy</a>.</p>
+        </details>
+        <details>
+          <summary>Can players under 13 join?</summary>
+          <p>Anyone may freely play on the public Minecraft servers. However, registering a web account is restricted to ages 13 and older in strict compliance with COPPA. We do not collect under-13 user data.</p>
+        </details>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network. Not affiliated with Mojang or Microsoft.</div>
+        <div class="footer-right">
+          <a href="https://github.com/anusreekr5081-cyber/spysmp" target="_blank" rel="noopener noreferrer" class="foot-gh"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+          <a href="https://www.instagram.com/jinshi_1" target="_blank" rel="noopener noreferrer" class="foot-ig"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@jinshi_1</a>
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+          <a href="refund.html" class="footer-link">Refunds</a>
+          <a href="https://anusreekr5081-cyber.github.io/spysmp/" target="_blank" rel="noopener" class="footer-link">GH Pages</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+</main>
+
+<!-- ═══ AUTH DIALOG & PROFILE MANAGER ═══ -->
+<dialog id="authDlg" class="auth-dlg" aria-labelledby="authTitle">
+  <div class="auth-box">
+    <button class="auth-close" id="authX" type="button" aria-label="Close">✕</button>
+
+    <div class="auth-tabs" id="authTabs" role="tablist">
+      <button type="button" data-tab="login" class="on" role="tab" aria-selected="true">Log in</button>
+      <button type="button" data-tab="signup" role="tab" aria-selected="false">Sign up</button>
+    </div>
+
+    <!-- Signed-in Account & Profile Details Manager -->
+    <div id="authSigned" hidden>
+      <div class="acct-header">
+        <div id="acctAvatarModal" class="acct-avatar-lg"></div>
+        <div>
+          <h3 id="acctName"></h3>
+          <p id="acctBio" style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;"></p>
+          <span class="acct-rank-badge">Verified Member</span>
+        </div>
+      </div>
+
+      <!-- Profile Photo & Info Customizer -->
+      <div class="profile-editor">
+        <div class="profile-editor-title">Profile Photo &amp; Details</div>
+        <div class="avatar-selector-row">
+          <button type="button" class="av-option-btn active" data-av="mc">Minecraft Skin</button>
+          <button type="button" class="av-option-btn" data-av="gh">GitHub Avatar</button>
+        </div>
+        <label class="field" style="margin-bottom:8px;">
+          <span style="font-size:12px;font-weight:500;">Custom Avatar URL (Optional)</span>
+          <input id="profileAvatarInput" type="url" placeholder="https://..." style="padding:7px 12px;font-size:13px;">
+        </label>
+        <label class="field" style="margin-bottom:8px;">
+          <span style="font-size:12px;font-weight:500;">Bio / Tagline</span>
+          <input id="profileBioInput" type="text" maxlength="160" placeholder="e.g. Redstone Engineer &amp; SMP Builder" style="padding:7px 12px;font-size:13px;">
+        </label>
+        <label class="field" style="margin-bottom:10px;">
+          <span style="font-size:12px;font-weight:500;">Discord Handle</span>
+          <input id="profileDiscordInput" type="text" maxlength="32" placeholder="e.g. player#0001" style="padding:7px 12px;font-size:13px;">
+        </label>
+        <div id="profileStatusMsg" class="profile-status-msg"></div>
+        <button class="btn btn-primary btn-sm" id="saveProfileBtn" type="button">Save Profile Changes</button>
+      </div>
+
+      <p class="auth-sub" id="acctVote">You haven't voted yet.</p>
+      <button class="btn btn-ghost btn-wide" id="logoutBtn" type="button">Sign out</button>
+    </div>
+
+    <!-- Login & Signup Forms -->
+    <form id="authForm" novalidate>
+      <h3 id="authTitle">Welcome back.</h3>
+      <p class="auth-sub" id="authIntro">Log in to vote and manage your account.</p>
+
+      <label class="field" id="authUserField">
+        <span id="authUserLabel">Username or Email</span>
+        <input id="authUser" name="username" autocomplete="username" required minlength="3" maxlength="128" spellcheck="false" autocapitalize="none" placeholder="Enter username or email">
+      </label>
+
+      <div id="authEmailWrap" hidden>
+        <label class="field">
+          <span>Email Address</span>
+          <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="player@example.com" spellcheck="false" autocapitalize="none">
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Password</span>
+        <div class="pwd-input-wrap">
+          <input id="authPass" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="••••••••">
+          <button type="button" class="pwd-toggle" id="pwdToggle" aria-label="Toggle password visibility">
+            <svg class="pwd-icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="pwd-icon-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+      </label>
+
+      <div id="passStrengthWrap" hidden>
+        <div class="pass-strength-bar"><div class="pass-strength-fill" id="passStrengthFill"></div></div>
+        <p class="pass-strength-txt" id="passStrengthTxt">Strength: min 8 characters</p>
+      </div>
+
+      <p class="auth-err" id="authErr" role="alert" aria-live="polite"></p>
+      <button class="btn btn-primary btn-wide" id="authGo" type="submit">Log in</button>
+      <p class="auth-hint" id="authHint">Passwords stored strictly as a salted cryptographic hash.</p>
+    </form>
+
+    <!-- Email OTP Verification Form -->
+    <form id="authOtpForm" hidden novalidate>
+      <div class="otp-header">
+        <span class="otp-badge">Email Verification</span>
+        <h3>Enter 6-Digit Code</h3>
+        <p class="auth-sub">A verification code was dispatched to <b id="authOtpEmailHint">your email</b>.</p>
+      </div>
+
+      <label class="field">
+        <span>Verification Code</span>
+        <input id="authOtpCode" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" class="otp-input" autocomplete="one-time-code" required>
+      </label>
+
+      <p class="auth-err" id="authOtpErr" role="alert" aria-live="polite"></p>
+      <button class="btn btn-primary btn-wide" id="authOtpGo" type="submit">Verify &amp; Create Account</button>
+
+      <div class="otp-actions">
+        <button type="button" class="link-btn" id="authOtpResend" disabled>Resend in <span id="authOtpTimer">60</span>s</button>
+        <button type="button" class="link-btn text-muted" id="authOtpBack">← Change info</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<!-- ═══ COPPA AGE GATE ═══ -->
+<dialog id="ageDlg" class="age-dlg" aria-labelledby="ageTitle">
+  <div class="age-box">
+    <span class="age-icon">🛡️</span>
+    <h3 id="ageTitle">Age Verification</h3>
+    <p class="auth-sub">In strict compliance with COPPA regulations, web registration requires users to be at least 13 years old. Under-13 user data is never recorded.</p>
+
+    <select class="age-sel" id="ageSelect" aria-label="Select age">
+      <option value="">Select your age…</option>
+      <option value="u13">Under 13</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18 or older</option>
+    </select>
+
+    <div class="age-block" id="ageBlock" hidden>
+      Under COPPA regulations, accounts cannot be registered for users under 13. You can still freely explore the public website and play on the Minecraft servers!
+    </div>
+
+    <div class="age-btns">
+      <button class="btn btn-ghost" id="ageCancelBtn" type="button">Cancel</button>
+      <button class="btn btn-primary" id="ageConfirmBtn" type="button" disabled>Continue →</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- ═══ COOKIE CONSENT BANNER ═══ -->
+<aside class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie Consent">
+  <div class="cb-inner">
+    <span class="cb-icon">🍪</span>
+    <div class="cb-text">
+      <strong>Cookie &amp; Advertising Notice:</strong> We use cookies to enable secure sessions and deliver relevant advertising via Google AdSense. Review our <a href="privacy.html">Privacy Policy</a> to learn more.
+    </div>
+    <div class="cb-actions">
+      <button class="btn btn-primary btn-sm" id="cookieAcceptBtn" type="button">Accept &amp; Continue</button>
+    </div>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Mobile Quick Action Dock -->
+<nav class="mobile-dock" aria-label="Quick Actions">
+  <button class="dock-btn" id="dockCopyIp" type="button" aria-label="Copy Server IP">
+    <span class="dock-icon">📋</span>
+    <span class="dock-label">Copy IP</span>
+  </button>
+  <a href="#modes" class="dock-btn" onclick="closeSidebar()">
+    <span class="dock-icon">⚔️</span>
+    <span class="dock-label">Modes</span>
+  </a>
+  <a href="#vote" class="dock-btn" onclick="closeSidebar()">
+    <span class="dock-icon">🗳️</span>
+    <span class="dock-label">Vote</span>
+  </a>
+  <button class="dock-btn" id="dockAcct" type="button" aria-label="Account">
+    <span class="dock-icon">👤</span>
+    <span class="dock-label">Account</span>
+  </button>
+</nav>
+
+<script src="assets/app.js?v=11"></script>
+</body>
+</html>
