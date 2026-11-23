@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=11">
+<link rel="stylesheet" href="assets/style.css?v=12">
 </head>
 <body>
 
@@ -49,6 +49,13 @@
     </div>
     <span class="ping-tag" id="pingTag">measuring…</span>
   </div>
+
+  <!-- Command Center Quick Trigger -->
+  <button class="sb-cmd-btn" id="sbCmdBtn" type="button" aria-label="Open Command Center">
+    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+    <span>Command Palette</span>
+    <kbd class="kbd-tag">⌘K</kbd>
+  </button>
 
   <div class="sb-acct-wrap">
     <button class="sb-acct-btn" id="acctBtn" aria-label="Account" aria-haspopup="dialog">
@@ -94,6 +101,15 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         <span>Appearance</span>
       </button>
+      <button class="sb-ctrl-btn" id="soundToggleBtn" aria-label="Toggle UI Audio">
+        <span id="soundIcon">🔊</span>
+        <span id="soundLabel">Sound</span>
+      </button>
+      <button class="sb-ctrl-btn" id="shortcutsBtn" aria-label="Keyboard Shortcuts">
+        <span>⌨️</span>
+        <span>Shortcuts</span>
+        <kbd class="kbd-mini">?</kbd>
+      </button>
     </div>
 
     <div class="sb-social-links">
@@ -126,6 +142,9 @@
   </button>
   <a href="#home" class="tb-logo">SPYSMP</a>
   <div class="tb-right">
+    <button class="tb-icon-btn" id="tbCmdBtn" aria-label="Command palette">
+      <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+    </button>
     <button class="tb-acct" id="tbAcctBtn" aria-label="Account">
       <span id="tbAcctAvatarWrap" class="tb-avatar-wrap">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5.5" r="3"/><path d="M2.5 14c.5-3 2.7-4.5 5.5-4.5s5 1.5 5.5 4.5" stroke-linecap="round"/></svg>
@@ -141,9 +160,25 @@
 <!-- ═══ MAIN CONTENT ═══ -->
 <main class="main">
 
+  <!-- ═══ DYNAMIC ISLAND (Apple Live Telemetry HUD) ═══ -->
+  <div class="di-container">
+    <div class="dynamic-island" id="dynamicIsland" role="button" tabindex="0" title="Click to view live server diagnostic HUD (or press Space)">
+      <div class="di-pill">
+        <span class="di-pulse"></span>
+        <span class="di-host">play.spysmp.live</span>
+        <span class="di-sep">/</span>
+        <span class="di-data" id="diPlayers">18 Online</span>
+        <span class="di-badge" id="diTps">20.0 TPS</span>
+        <span class="di-ping-wrap"><span class="di-ping-dot"></span><span id="diPing">22ms</span></span>
+        <kbd class="di-kbd">SPACE</kbd>
+      </div>
+    </div>
+  </div>
+
   <!-- ── 1. OVERVIEW (HOME) ── -->
   <section class="page" id="home">
     <div class="hero">
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="dot"></span>
@@ -159,10 +194,11 @@
           <a href="#modes" class="btn btn-primary">Explore Game Modes →</a>
           <a href="#vote" class="btn btn-ghost">Community Poll</a>
         </div>
-        <div class="hero-ip-badge" id="quickCopyBtn" title="Click to copy server endpoint">
+        <div class="hero-ip-badge" id="quickCopyBtn" title="Click to copy server endpoint (or press C)">
           <span class="pulse-dot"></span>
           <span class="ip-text">play.spysmp.live</span>
-          <span class="copy-indicator">Copy Address 📋</span>
+          <span class="copy-indicator" id="copyIndicator">Copy Address 📋</span>
+          <kbd class="kbd-pill">C</kbd>
         </div>
       </div>
 
@@ -744,6 +780,9 @@
     <div id="authSigned" hidden>
       <div class="acct-header">
         <div id="acctAvatarModal" class="acct-avatar-lg"></div>
+        <div class="acct-skin-body-wrap" id="acctBodyWrap" title="Live Minecraft Skin Hologram">
+          <img id="acctBodyPreview" class="acct-body-preview" alt="Minecraft Skin Body" loading="lazy" src="https://mc-heads.net/body/steve/right">
+        </div>
         <div>
           <h3 id="acctName"></h3>
           <p id="acctBio" style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;"></p>
@@ -885,11 +924,139 @@
 <!-- Toast -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- ═══ COMMAND CENTER PALETTE (⌘K / Ctrl+K) ═══ -->
+<dialog id="cmdkDlg" class="cmdk-dialog" aria-labelledby="cmdkTitle">
+  <div class="cmdk-box">
+    <div class="cmdk-header">
+      <svg class="cmdk-search-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+      <input type="text" id="cmdkInput" class="cmdk-input" placeholder="Type a command or search... (Esc to exit)" autocomplete="off" spellcheck="false" aria-label="Command search input">
+      <button class="cmdk-esc-btn" id="cmdkCloseBtn" type="button" aria-label="Close palette">ESC</button>
+    </div>
+    <div class="cmdk-list" id="cmdkList" role="listbox">
+      <!-- Dynamic list of actions, commands & game modes populated by JS -->
+    </div>
+    <div class="cmdk-footer">
+      <div class="cmdk-foot-item"><kbd class="cmdk-k">↑</kbd><kbd class="cmdk-k">↓</kbd> <span>Navigate</span></div>
+      <div class="cmdk-foot-item"><kbd class="cmdk-k">↵</kbd> <span>Select</span></div>
+      <div class="cmdk-foot-item"><kbd class="cmdk-k">ESC</kbd> <span>Dismiss</span></div>
+      <div class="cmdk-foot-right"><span>SpySMP Spotlight</span></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ═══ KEYBOARD SHORTCUTS CHEAT SHEET (?) ═══ -->
+<dialog id="shortcutsDlg" class="shortcuts-dialog" aria-labelledby="shortcutsTitle">
+  <div class="shortcuts-box">
+    <div class="shortcuts-header">
+      <div class="shortcuts-header-left">
+        <span class="shortcuts-icon">⌨️</span>
+        <h3 id="shortcutsTitle">Keyboard Navigation &amp; Shortcuts</h3>
+      </div>
+      <button class="shortcuts-x" id="shortcutsClose" type="button" aria-label="Close shortcuts">✕</button>
+    </div>
+    <div class="shortcuts-content">
+      <div class="sc-group">
+        <div class="sc-group-title">Global Shortcuts</div>
+        <div class="sc-row">
+          <span class="sc-name">Command Palette / Quick Actions</span>
+          <div class="sc-keys"><kbd>⌘</kbd> <kbd>K</kbd> <span class="sc-or">or</span> <kbd>/</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Copy Server Address</span>
+          <div class="sc-keys"><kbd>C</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Toggle Dark / Light Theme</span>
+          <div class="sc-keys"><kbd>T</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Toggle Subtle Audio Haptics</span>
+          <div class="sc-keys"><kbd>M</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Open Server Diagnostic Telemetry</span>
+          <div class="sc-keys"><kbd>Space</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Show Keyboard Cheat Sheet</span>
+          <div class="sc-keys"><kbd>?</kbd></div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-name">Dismiss Any Modal</span>
+          <div class="sc-keys"><kbd>Esc</kbd></div>
+        </div>
+      </div>
+      <div class="sc-group">
+        <div class="sc-group-title">Direct Section Navigation</div>
+        <div class="sc-grid-num">
+          <div class="sc-num-item"><kbd>1</kbd> <span>Overview</span></div>
+          <div class="sc-num-item"><kbd>2</kbd> <span>Game Modes</span></div>
+          <div class="sc-num-item"><kbd>3</kbd> <span>Community Poll</span></div>
+          <div class="sc-num-item"><kbd>4</kbd> <span>Store &amp; Ranks</span></div>
+          <div class="sc-num-item"><kbd>5</kbd> <span>Rules</span></div>
+          <div class="sc-num-item"><kbd>6</kbd> <span>Connection Guide</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ═══ LIVE TELEMETRY INSPECTOR MODAL ═══ -->
+<dialog id="telemetryDlg" class="telemetry-dialog" aria-labelledby="telemetryTitle">
+  <div class="telemetry-box">
+    <div class="telemetry-header">
+      <div class="telemetry-title-wrap">
+        <span class="pulse-dot"></span>
+        <h3 id="telemetryTitle">Live Infrastructure Telemetry</h3>
+      </div>
+      <button class="telemetry-x" id="telemetryClose" type="button" aria-label="Close telemetry">✕</button>
+    </div>
+    <div class="telemetry-body">
+      <div class="telem-grid">
+        <div class="telem-card">
+          <div class="telem-lbl">Java Edition Host</div>
+          <div class="telem-val" id="telemJavaHost">play.spysmp.live:25565</div>
+          <button class="btn btn-ghost btn-sm" id="telemCopyJava">Copy Java IP</button>
+        </div>
+        <div class="telem-card">
+          <div class="telem-lbl">Bedrock Edition Host</div>
+          <div class="telem-val" id="telemBedrockHost">play.spysmp.live:19132</div>
+          <button class="btn btn-ghost btn-sm" id="telemCopyBedrock">Copy Bedrock IP</button>
+        </div>
+        <div class="telem-card">
+          <div class="telem-lbl">Active Protocol</div>
+          <div class="telem-val" id="telemVersion">1.20 - 1.21.4 (Crossplay)</div>
+        </div>
+        <div class="telem-card">
+          <div class="telem-lbl">Tick Rate Stability</div>
+          <div class="telem-val text-emerald" id="telemTps">20.0 TPS (Constant)</div>
+        </div>
+        <div class="telem-card">
+          <div class="telem-lbl">Online Players</div>
+          <div class="telem-val" id="telemPlayers">18 / 200 Players</div>
+        </div>
+        <div class="telem-card">
+          <div class="telem-lbl">Server Node Software</div>
+          <div class="telem-val" id="telemSoftware">Purpur Enterprise Bare Metal</div>
+        </div>
+      </div>
+      <div class="telem-motd-box">
+        <div class="telem-lbl">Server Message of the Day (MOTD)</div>
+        <div class="telem-motd" id="telemMotd">SpySMP Network · Season One Flagship · Zero Pay-to-Win</div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <!-- Mobile Quick Action Dock -->
 <nav class="mobile-dock" aria-label="Quick Actions">
   <button class="dock-btn" id="dockCopyIp" type="button" aria-label="Copy Server IP">
     <span class="dock-icon">📋</span>
     <span class="dock-label">Copy IP</span>
+  </button>
+  <button class="dock-btn" id="dockCmdk" type="button" aria-label="Command Center">
+    <span class="dock-icon">⌘K</span>
+    <span class="dock-label">Search</span>
   </button>
   <a href="#modes" class="dock-btn" onclick="closeSidebar()">
     <span class="dock-icon">⚔️</span>
@@ -905,6 +1072,6 @@
   </button>
 </nav>
 
-<script src="assets/app.js?v=11"></script>
+<script src="assets/app.js?v=12"></script>
 </body>
 </html>

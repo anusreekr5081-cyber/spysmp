@@ -1962,3 +1962,659 @@ dialog::backdrop {
     width: 100%;
   }
 }
+
+
+/* ============================================================
+   APPLE LUXURY EXTENSIONS — SPOTLIGHT, DYNAMIC ISLAND, 3D HUD
+   ============================================================ */
+
+/* ── Keyboard Shortcut Keys (Apple Monochromatic Badges) ── */
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(255, 255, 255, 0.22);
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+}
+[data-theme="light"] kbd {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.22);
+  color: #1d1d1f;
+}
+
+.kbd-tag {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 2px 5px;
+  opacity: 0.8;
+}
+
+.kbd-mini {
+  font-size: 9px;
+  padding: 1px 4px;
+  margin-left: auto;
+}
+
+.kbd-pill {
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Sidebar Command Palette Trigger Button ── */
+.sb-cmd-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sb-cmd-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+[data-theme="light"] .sb-cmd-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #555;
+}
+[data-theme="light"] .sb-cmd-btn:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #000;
+}
+
+.tb-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tb-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── DYNAMIC ISLAND (Apple Live Telemetry HUD Capsule) ── */
+.di-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 20;
+}
+
+.dynamic-island {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background: rgba(15, 15, 18, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+[data-theme="light"] .dynamic-island {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.dynamic-island:hover {
+  transform: translateY(-2px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.dynamic-island:active {
+  transform: scale(0.985);
+}
+
+.di-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.di-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34c759;
+  box-shadow: 0 0 10px rgba(52, 199, 89, 0.8);
+  animation: diRadar 2s infinite ease-in-out;
+}
+@keyframes diRadar {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.di-host {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.di-sep {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.di-data {
+  color: var(--text-secondary);
+}
+.di-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+[data-theme="light"] .di-badge {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #1d1d1f;
+}
+
+.di-ping-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #34c759;
+}
+.di-ping-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.di-kbd {
+  font-size: 9px;
+  padding: 1px 5px;
+  margin-left: 2px;
+  opacity: 0.6;
+}
+
+/* ── Interactive Ambient Particles Canvas ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+.hero-content, .hero-vis {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Linear / Vision Pro Cursor Spotlight & 3D Tilt ── */
+.feat-card, .mc-card, .rank-card, .stat, .telem-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
+}
+.feat-card::before, .mc-card::before, .rank-card::before, .stat::before, .telem-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.12), transparent 40%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+[data-theme="light"] .feat-card::before,
+[data-theme="light"] .mc-card::before,
+[data-theme="light"] .rank-card::before,
+[data-theme="light"] .stat::before,
+[data-theme="light"] .telem-card::before {
+  background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(0, 0, 0, 0.06), transparent 40%);
+}
+
+.feat-card:hover::before, .mc-card:hover::before, .rank-card:hover::before, .stat:hover::before, .telem-card:hover::before {
+  opacity: 1;
+}
+
+/* ── 3D Minecraft Skin Hologram Card ── */
+.acct-skin-body-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.acct-skin-body-wrap:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.acct-body-preview {
+  height: 80px;
+  width: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+  transition: transform 0.2s ease-out;
+}
+
+/* ── COMMAND CENTER DIALOG (Raycast / Linear Spotlight) ── */
+.cmdk-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 620px;
+  width: calc(100% - 32px);
+  margin: 12vh auto auto;
+  outline: none;
+  z-index: 1000;
+}
+.cmdk-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.cmdk-box {
+  background: rgba(15, 15, 18, 0.88);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  overflow: hidden;
+  animation: cmdkZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="light"] .cmdk-box {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+}
+@keyframes cmdkZoom {
+  from { opacity: 0; transform: scale(0.97) translateY(-8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.cmdk-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+[data-theme="light"] .cmdk-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+.cmdk-search-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.cmdk-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+.cmdk-input::placeholder {
+  color: var(--text-muted);
+}
+.cmdk-esc-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.cmdk-list {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 8px;
+}
+.cmdk-list::-webkit-scrollbar {
+  width: 5px;
+}
+.cmdk-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.cmdk-group {
+  margin-bottom: 8px;
+}
+.cmdk-group-title {
+  padding: 6px 10px 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.12s ease;
+}
+.cmdk-item.selected, .cmdk-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+[data-theme="light"] .cmdk-item.selected,
+[data-theme="light"] .cmdk-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
+}
+.cmdk-item-icon {
+  font-size: 15px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cmdk-item-label {
+  flex: 1;
+  font-weight: 500;
+}
+.cmdk-item-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+.cmdk-item-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+}
+
+.cmdk-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+[data-theme="light"] .cmdk-footer {
+  border-top-color: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.02);
+}
+.cmdk-foot-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cmdk-k {
+  font-size: 10px;
+  padding: 1px 4px;
+}
+.cmdk-foot-right {
+  margin-left: auto;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+/* ── KEYBOARD SHORTCUTS DIALOG ── */
+.shortcuts-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 540px;
+  width: calc(100% - 32px);
+  margin: auto;
+  outline: none;
+  z-index: 1000;
+}
+.shortcuts-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+}
+.shortcuts-box {
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  color: var(--text-primary);
+  padding: 22px;
+}
+[data-theme="light"] .shortcuts-box {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+.shortcuts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.shortcuts-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.shortcuts-header-left h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.shortcuts-x {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  cursor: pointer;
+}
+.sc-group {
+  margin-bottom: 16px;
+}
+.sc-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.sc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.sc-keys {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sc-or {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0 2px;
+}
+.sc-grid-num {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.sc-num-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+/* ── LIVE TELEMETRY INSPECTOR MODAL ── */
+.telemetry-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 600px;
+  width: calc(100% - 32px);
+  margin: auto;
+  outline: none;
+  z-index: 1000;
+}
+.telemetry-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+}
+.telemetry-box {
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  color: var(--text-primary);
+  padding: 24px;
+}
+[data-theme="light"] .telemetry-box {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+.telemetry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.telemetry-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.telemetry-title-wrap h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.telemetry-x {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+}
+.telem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media (max-width: 540px) {
+  .telem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.telem-card {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.telem-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+.telem-val {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.telem-motd-box {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+.telem-motd {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #34c759;
+  margin-top: 4px;
+}
