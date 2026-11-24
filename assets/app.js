@@ -46,10 +46,11 @@
   if (closeBtn) closeBtn.addEventListener('click', window.closeSidebar);
   if (overlay) overlay.addEventListener('click', window.closeSidebar);
 
-  var pages = ['home', 'modes', 'vote', 'ranks', 'rules', 'join'];
+  var pages = ['home', 'modes', 'leaderboard', 'vote', 'ranks', 'rules', 'join'];
   var pageTitles = {
     home: 'Overview — Flagship Minecraft Network',
     modes: 'Game Modes — 10 Custom Modes',
+    leaderboard: 'Live Leaderboards — Top Balances',
     vote: 'Community Poll — Shape Season One',
     ranks: 'Store & Support — Cosmetics Only',
     rules: 'Rules — Code of Conduct',
@@ -1224,8 +1225,8 @@
       if (res && res.ok) {
         var data = await res.json();
         if (data && data.players) {
-          var count = data.players.online || 18;
-          var max = data.players.max || 200;
+          var count = (typeof data.players.online === 'number') ? data.players.online : 0;
+          var max = data.players.max || 100;
           if (diPlayers) diPlayers.textContent = count + ' Online';
           if (telemPlayers) telemPlayers.textContent = count + ' / ' + max + ' Players';
         }
@@ -1233,11 +1234,39 @@
         if (data.version && telemVersion) telemVersion.textContent = data.version + ' (Crossplay)';
         if (data.motd && telemMotd) telemMotd.textContent = data.motd;
         if (data.software && telemSoftware) telemSoftware.textContent = data.software;
+        if (data.leaderboard && Array.isArray(data.leaderboard)) {
+          renderLeaderboard(data.leaderboard);
+        }
       }
     } catch (e) {
-      if (diPlayers) diPlayers.textContent = '18 Online';
+      if (diPlayers) diPlayers.textContent = '0 Online';
       if (diTps) diTps.textContent = '20.0 TPS';
     }
+  }
+
+  function renderLeaderboard(list) {
+    var lbEl = $('leaderboardList');
+    if (!lbEl) return;
+    if (!list || list.length === 0) {
+      lbEl.innerHTML = '<div class="lb-empty">No economy records recorded yet. Start mining and trading!</div>';
+      return;
+    }
+    var medals = ['🥇', '🥈', '🥉'];
+    var html = list.map(function (p, i) {
+      var rankBadge = (i < 3) ? '<span class="lb-medal">' + medals[i] + '</span> #' + (i + 1) : '#' + (i + 1);
+      var balFormatted = '$' + Number(p.balance).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      var avatar = 'https://mc-heads.net/avatar/' + encodeURIComponent(p.name) + '/32';
+      return '<div class="lb-row">' +
+        '<div class="lb-col-rank">' + rankBadge + '</div>' +
+        '<div class="lb-col-player">' +
+          '<img src="' + avatar + '" alt="' + p.name + '" class="lb-avatar" loading="lazy" onerror="this.src=\'https://mc-heads.net/avatar/Steve/32\'">' +
+          '<span class="lb-name">' + p.name + '</span>' +
+        '</div>' +
+        '<div class="lb-col-bal font-mono">' + balFormatted + '</div>' +
+        '<div class="lb-col-status"><span class="badge badge-emerald">Active</span></div>' +
+      '</div>';
+    }).join('');
+    lbEl.innerHTML = html;
   }
   pollServerTelemetry();
   setInterval(pollServerTelemetry, 12000);

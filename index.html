@@ -76,6 +76,11 @@
       <span>Game Modes</span>
       <span class="sb-badge">10</span>
     </a>
+    <a href="#leaderboard" class="sb-link" data-page="leaderboard" onclick="closeSidebar()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+      <span>Leaderboard</span>
+      <span class="sb-badge">Live</span>
+    </a>
     <a href="#vote" class="sb-link" data-page="vote" onclick="closeSidebar()">
       <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
       <span>Community Poll</span>
@@ -446,6 +451,39 @@
           <h3>Earth SMP</h3>
           <p>A true-to-life 1:1500 scale voxel recreation of Earth. Found historic nations, form international treaties, trade, and forge history.</p>
           <div class="mc-pills"><span class="pill">World Map</span><span class="pill">Nation Wars</span><span class="pill">Diplomacy</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">© 2026 SpySMP Network.</div>
+        <div class="footer-right">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ── 2.5. LIVE LEADERBOARDS ── -->
+  <section class="page" id="leaderboard" style="display:none;">
+    <div class="sec-hdr">
+      <div class="eyebrow">Real-Time Economy</div>
+      <h2>Live Leaderboards &amp; Hall of Fame.</h2>
+      <p>Live player balances synchronized directly from the dedicated SMP server database.</p>
+    </div>
+
+    <div class="lb-container">
+      <div class="lb-card">
+        <div class="lb-header">
+          <div class="lb-col-rank">Rank</div>
+          <div class="lb-col-player">Player</div>
+          <div class="lb-col-bal">Balance</div>
+          <div class="lb-col-status">Status</div>
+        </div>
+        <div class="lb-list" id="leaderboardList">
+          <div class="lb-loading">Fetching live economy standings...</div>
         </div>
       </div>
     </div>
