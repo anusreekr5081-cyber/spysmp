@@ -92,7 +92,7 @@
   function measurePing() {
     if (document.hidden) return;
     var t0 = performance.now();
-    fetch('/api/health', { method: 'HEAD', cache: 'no-store' })
+    fetch('/api/health', { method: 'GET', cache: 'no-store' })
       .then(function () {
         var ms = Math.round(performance.now() - t0);
         if (pingTag) pingTag.textContent = ms + 'ms';
